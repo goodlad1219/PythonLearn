@@ -5,7 +5,7 @@ cap = cv2.VideoCapture(0) #create video capture update
 cap.set(3, 1280) #set(propid, value), prop id for width is 3.
 cap.set(4, 720) #set(propid, value), prop id for height is 4.
 
-detector = HandDetector(detectionCon=0.8, maxHands=1) #detection confidence is bydefault 0.5
+detector = HandDetector(detectionCon=0.8, maxHands=2) #detection confidence is bydefault 0.5
 
 keys = [["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
         ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"],
