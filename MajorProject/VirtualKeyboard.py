@@ -1,7 +1,7 @@
 import cv2
 from cvzone.HandTrackingModule import HandDetector
 
-cap = cv2.VideoCapture(0) #create video capture update
+cap = cv2.VideoCapture(0) #create video capture update --- id number = 0 - its the web cam id
 cap.set(3, 1280) #set(propid, value), prop id for width is 3.
 cap.set(4, 720) #set(propid, value), prop id for height is 4.
 
@@ -10,6 +10,7 @@ detector = HandDetector(detectionCon=0.8, maxHands=2) #detection confidence is b
 keys = [["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
         ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"],
         ["Z", "X", "C", "V", "B", "N", "M", ",", ".", "/"]]
+
 
 def drawALL(img,buttonList):
     for button in buttonList:
@@ -44,11 +45,8 @@ while True:
     # Draws the buttons
     img = drawALL(img,buttonList)
 
-     
-
-
-
-    cv2.imshow("Image", img)
+    
+    cv2.imshow("SDP", img)
     # closes the window if we pres  q
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
