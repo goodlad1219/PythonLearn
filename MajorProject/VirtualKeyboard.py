@@ -1,9 +1,12 @@
 import cv2
 from cvzone.HandTrackingModule import HandDetector
+import time
 
 cap = cv2.VideoCapture(0) #create video capture update --- id number = 0 - its the web cam id
 cap.set(3, 1280) #set(propid, value), prop id for width is 3.
 cap.set(4, 720) #set(propid, value), prop id for height is 4.
+
+pTime = 0
 
 detector = HandDetector(detectionCon=0.8, maxHands=2) #detection confidence is bydefault 0.5
 
@@ -39,16 +42,23 @@ for x in range(len(keys)):
 #boilerplate for running webcam
 while True:
     success, img = cap.read()
-    hands, img = detector.findHands(img) # find hands
+    hands, img = detector.findHands(img,flipType=False ) # find hands
     # bboxInfo = detector.findPositions(img) #landmark points
+
+    # To show the frame rate.
+    # cTime = time.time()
+    # fps = 1 / (cTime - pTime)
+    # pTime = cTime
+    # cv2.putText(img, f'FPS:{int(fps)}', (20, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     # Draws the buttons
     img = drawALL(img,buttonList)
 
     
     cv2.imshow("SDP", img)
-    # closes the window if we pres  q
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    # closes the window if we pres  Escape key
+    # Ascii key code for Escape is 27
+    if cv2.waitKey(1) & 0xFF == 27:
         break
 
  
