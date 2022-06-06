@@ -6,7 +6,7 @@ cap = cv2.VideoCapture(0) #create video capture update --- id number = 0 - its t
 cap.set(3, 1280) #set(propid, value), prop id for width is 3.
 cap.set(4, 720) #set(propid, value), prop id for height is 4.
 
-pTime = 0
+# pTime = 0
 
 detector = HandDetector(detectionCon=0.8, maxHands=2) #detection confidence is bydefault 0.5
 
