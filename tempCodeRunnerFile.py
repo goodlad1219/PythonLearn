@@ -1,0 +1,1 @@
+print(friends[0])
